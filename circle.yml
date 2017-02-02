@@ -1,2 +1,2 @@
 general:
-build_dir: src
+  build_dir: src
