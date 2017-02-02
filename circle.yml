@@ -1,12 +1,4 @@
-language: java
-jdk:
-  - oraclejdk8
-  - oraclejdk7
-script:
-  - mvn clean verify
-branches:
-  only:
-    - develop
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+test:
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
